@@ -28,7 +28,7 @@ public class AddNoteActivity extends AppCompatActivity implements View.OnClickLi
         editContent = (EditText) findViewById(R.id.note_content);
         findViewById(R.id.btn_save).setOnClickListener(this);
 
-        new AddNotePresenter(this, NoteRepository.getInstance());
+        new AddNotePresenter(this, NoteRepository.getInstance(getApplicationContext()));
     }
 
     @Override

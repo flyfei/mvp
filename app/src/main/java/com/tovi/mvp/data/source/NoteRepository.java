@@ -1,5 +1,6 @@
 package com.tovi.mvp.data.source;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
@@ -14,10 +15,15 @@ public class NoteRepository implements NoteDataSource {
     private static NoteRepository source;
 
     private Note note;
+    private final Context mContext;
 
-    public static NoteRepository getInstance() {
+    public NoteRepository(Context context) {
+        this.mContext = context;
+    }
+
+    public static NoteRepository getInstance(Context context) {
         if (null == source) {
-            source = new NoteRepository();
+            source = new NoteRepository(context);
         }
         return source;
     }
